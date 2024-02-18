@@ -1,6 +1,10 @@
+val jUnitPlatformVersion by extra { "1.10.1" }
+val jUnitJupiterVersion by extra { "5.10.1" }
+val mockitoVersion by extra { "5.7.0" }
+val assertJVersion by extra { "3.24.2" }
+
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.21"
     id("org.jetbrains.intellij") version "1.16.1"
 }
 
@@ -14,7 +18,7 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2023.1.5")
+    version.set("2023.3.4")
     type.set("IC") // Target IDE Platform
 
     plugins.set(listOf(/* Plugin Dependencies */))
@@ -25,9 +29,6 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "17"
         targetCompatibility = "17"
-    }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
     }
 
     patchPluginXml {
@@ -44,4 +45,17 @@ tasks {
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
+}
+
+tasks.named<Test>("test") {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation("org.junit.platform:junit-platform-launcher:$jUnitPlatformVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitJupiterVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:$jUnitJupiterVersion")
+    testImplementation("org.mockito:mockito-core:$mockitoVersion")
+    testImplementation("org.assertj:assertj-core:$assertJVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitJupiterVersion")
 }
