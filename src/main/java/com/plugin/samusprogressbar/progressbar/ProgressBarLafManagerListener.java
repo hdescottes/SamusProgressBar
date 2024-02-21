@@ -1,10 +1,12 @@
-package com.plugin.samusprogressbar;
+package com.plugin.samusprogressbar.progressbar;
 
 import com.intellij.ide.ui.LafManager;
 import com.intellij.ide.ui.LafManagerListener;
 import com.intellij.openapi.application.ApplicationActivationListener;
 import com.intellij.openapi.wm.IdeFrame;
 import org.jetbrains.annotations.NotNull;
+
+import javax.swing.UIManager;
 
 public class ProgressBarLafManagerListener implements LafManagerListener, ApplicationActivationListener {
 
@@ -23,7 +25,7 @@ public class ProgressBarLafManagerListener implements LafManagerListener, Applic
     }
 
     private static void updateProgressBarUI() {
-        //UIManager.put("ProgressBarUI", ProgressBarUi.class.getName());
-        //UIManager.getDefaults().put(ProgressBarUi.class.getName(), ProgressBarUi.class);
+        UIManager.put("ProgressBarUI", ProgressBarUI.class.getName());
+        UIManager.getDefaults().put(ProgressBarUI.class.getName(), ProgressBarUI.class);
     }
 }

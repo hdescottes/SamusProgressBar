@@ -50,9 +50,9 @@
     </actions>
 
     <applicationListeners>
-        <listener class="com.plugin.samusprogressbar.ProgressBarLafManagerListener"
+        <listener class="com.plugin.samusprogressbar.progressbar.ProgressBarLafManagerListener"
                   topic="com.intellij.ide.ui.LafManagerListener" />
-        <listener class="com.plugin.samusprogressbar.ProgressBarLafManagerListener"
+        <listener class="com.plugin.samusprogressbar.progressbar.ProgressBarLafManagerListener"
                   topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>
