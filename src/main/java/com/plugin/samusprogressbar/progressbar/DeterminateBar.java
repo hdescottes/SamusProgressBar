@@ -45,7 +45,7 @@ public class DeterminateBar {
                 SettingsState.getInstance().selectedCharacter.getBarColors(),
                 MultipleGradientPaint.CycleMethod.REFLECT);
         graphics2D.setPaint(color);
-        graphics2D.fill(new RoundRectangle2D.Float(2f * off, 2f * off, amountFull - JBUIScale.scale(5f), height - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
+        graphics2D.fill(new RoundRectangle2D.Float(2f * off, 2f * off, amountFull - JBUIScale.scale(10f), height - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
     }
 
     private void drawDeterminateIcon(int amountFull, Graphics2D g2) {

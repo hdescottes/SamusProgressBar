@@ -33,7 +33,7 @@ public class SettingsComponent {
             JBRadioButton radioButton = new JBRadioButton(character.getDisplayNameDeterminate());
             characterSelectGroup.add(radioButton);
             charactersRadioButtons.add(radioButton);
-            formBuilder.addLabeledComponent(new JLabel(character.getIconDeterminate()), radioButton);
+            formBuilder.addLabeledComponent(new JLabel(character.getIconSettings()), radioButton);
         }
         configMainPanel = formBuilder.addComponentFillVertically(new JPanel(), 0).getPanel();
     }
@@ -59,7 +59,7 @@ public class SettingsComponent {
                 .orElse(Icons.SAMUS_POWER_SUIT.getDescription());
 
         return Arrays.stream(Character.values())
-                .filter(character -> character.getIconDeterminate().getDescription().equals(radioText))
+                .filter(character -> character.getIconSettings().getDescription().equals(radioText))
                 .findFirst()
                 .orElse(SAMUS_POWER_SUIT);
     }
