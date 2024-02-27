@@ -37,8 +37,8 @@ public class ConfigTest {
 
         assertNotNull(component);
         assertEquals("Choose your character :", ((JBLabel) component.getComponents()[0]).getText());
-        assertEquals(character.getIconDeterminate().getDescription(), ((JLabel) component.getComponents()[jLabel]).getIcon().toString());
-        assertEquals(character.getIconDeterminate().getDescription(), ((JBRadioButton) component.getComponents()[jbRadioButton]).getText());
+        assertEquals(character.getIconSettings().getDescription(), ((JLabel) component.getComponents()[jLabel]).getIcon().toString());
+        assertEquals(character.getIconSettings().getDescription(), ((JBRadioButton) component.getComponents()[jbRadioButton]).getText());
     }
 
     private static Stream<Arguments> characterSelection() {
@@ -46,7 +46,8 @@ public class ConfigTest {
                 Arguments.of(Character.SAMUS_POWER_SUIT, 1, 2),
                 Arguments.of(Character.SAMUS_GRAVITY_SUIT, 3, 4),
                 Arguments.of(Character.SAMUS_ZERO_SUIT, 5, 6),
-                Arguments.of(Character.SAMUS_FUSION_SUIT, 7, 8)
+                Arguments.of(Character.SAMUS_FUSION_SUIT, 7, 8),
+                Arguments.of(Character.RANDOM, 9, 10)
         );
     }
 

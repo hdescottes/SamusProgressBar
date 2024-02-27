@@ -3,6 +3,7 @@ package com.plugin.samusprogressbar.progressbar;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.scale.JBUIScale;
+import com.plugin.samusprogressbar.Icons;
 import com.plugin.samusprogressbar.settings.SettingsState;
 
 import javax.swing.JComponent;
@@ -10,6 +11,8 @@ import javax.swing.JProgressBar;
 import java.awt.Graphics2D;
 import java.awt.geom.Area;
 import java.awt.geom.RoundRectangle2D;
+
+import static com.plugin.samusprogressbar.Character.setRandomIndeterminateCharacter;
 
 public class IndeterminateBar {
 
@@ -19,6 +22,9 @@ public class IndeterminateBar {
     private JProgressBar progressBar;
 
     public IndeterminateBar() {
+        if (Icons.RANDOM.getDescription().equals(SettingsState.getInstance().selectedCharacter.getDisplayNameIconSettings())) {
+            setRandomIndeterminateCharacter();
+        }
     }
 
     public void drawIndeterminateBar(JProgressBar progressBar, JComponent component, Graphics2D graphics2D) {

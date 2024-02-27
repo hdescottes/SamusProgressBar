@@ -30,7 +30,7 @@ public class SettingsComponent {
         ButtonGroup characterSelectGroup = new ButtonGroup();
         FormBuilder formBuilder = FormBuilder.createFormBuilder().addComponent(title);
         for (Character character : Character.values()) {
-            JBRadioButton radioButton = new JBRadioButton(character.getDisplayNameDeterminate());
+            JBRadioButton radioButton = new JBRadioButton(character.getDisplayNameIconSettings());
             characterSelectGroup.add(radioButton);
             charactersRadioButtons.add(radioButton);
             formBuilder.addLabeledComponent(new JLabel(character.getIconSettings()), radioButton);
@@ -66,7 +66,7 @@ public class SettingsComponent {
 
     public void setChosenCharacter(@NotNull Character character) {
         for (JBRadioButton charactersRadioButton : charactersRadioButtons) {
-            charactersRadioButton.setSelected(character.getDisplayNameDeterminate().equals(charactersRadioButton.getText()));
+            charactersRadioButton.setSelected(character.getDisplayNameIconSettings().equals(charactersRadioButton.getText()));
         }
     }
 }

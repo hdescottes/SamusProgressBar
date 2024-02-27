@@ -23,4 +23,6 @@ public class Icons {
     public static ImageIcon MORPH_ZERO_SUIT = new ImageIcon(Icons.class.getResource("/progressbar/morph_zero_suit.gif"), "Morphball (Zero Suit)");
 
     public static ImageIcon MORPH_FUSION_SUIT = new ImageIcon(Icons.class.getResource("/progressbar/morph_fusion_suit.gif"), "Morphball (Fusion Suit)");
+
+    public static ImageIcon RANDOM = new ImageIcon(Icons.class.getResource("/settings/save_room.gif"), "Random character");
 }

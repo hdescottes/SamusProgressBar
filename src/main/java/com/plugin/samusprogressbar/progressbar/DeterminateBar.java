@@ -2,6 +2,7 @@ package com.plugin.samusprogressbar.progressbar;
 
 import com.intellij.ui.scale.JBUIScale;
 import com.intellij.util.ui.UIUtil;
+import com.plugin.samusprogressbar.Icons;
 import com.plugin.samusprogressbar.settings.SettingsState;
 
 import javax.swing.JComponent;
@@ -14,11 +15,16 @@ import java.awt.MultipleGradientPaint;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
 
+import static com.plugin.samusprogressbar.Character.setRandomDeterminateCharacter;
+
 public class DeterminateBar {
 
     private JProgressBar progressBar;
 
     public DeterminateBar() {
+        if (Icons.RANDOM.getDescription().equals(SettingsState.getInstance().selectedCharacter.getDisplayNameIconSettings())) {
+            setRandomDeterminateCharacter();
+        }
     }
 
     public void drawDeterminateBar(JProgressBar progressBar, Graphics graphics, JComponent component, int width, int height, int amountFull) {
