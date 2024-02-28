@@ -2,28 +2,28 @@
     <id>com.plugin.samusprogressbar</id>
     <name>Samus Progress Bar</name>
     <version>1.0</version>
-    <idea-version since-build="212"/>
+    <idea-version since-build="231" until-build="241.*"/>
     <vendor email="">Hugo DESCOTTES</vendor>
 
     <description><![CDATA[
       This is the Samus Progress Bar for IJ based IDEs based on the Nyan Progress Bar by Dmitry Batkovitch and Mario Progress Bar by KikiManjaro.
-      It display Samus for the basic bar and hers Morphball for the indeterminate one.
+      It displays Samus for the basic bar and her Morphball for the indeterminate one.
       <br>
       <br>
       DETERMINATE:
       <br>
-      <img src="" title="SamusDeterminateBar" />
+      <img src="src/main/resources/description/samus_bar.gif" title="SamusDeterminateBar" />
       <br>
       INDETERMINATE:
       <br>
-      <img src="" title="SamusIndeterminateBar" />
+      <img src="src/main/resources/description/morph_bar.gif" title="SamusIndeterminateBar" />
       <br>
       <br>
-      You can access plugin's configuration in :
+      You can access the plugin's configuration in :
       <br>
       Settings > Tools > Samus Progress Bar
       <br>
-      <img src="" title="Options" />
+      <img src="src/main/resources/description/settings.gif" title="Options" />
     ]]></description>
 
     <change-notes><![CDATA[
