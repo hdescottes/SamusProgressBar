@@ -1,4 +1,4 @@
-package settings;
+package com.plugin.samusprogressbar.settings;
 
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
