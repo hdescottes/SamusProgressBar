@@ -67,8 +67,20 @@ tasks {
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
-    val pluginFileName = properties("pluginName") + "-" + version + ".jar"
-    systemProperty("test.plugin.path", projectDir.resolve("build/libs/$pluginFileName").absolutePath)
+}
+
+tasks.register<Test>("unitTest") {
+    useJUnitPlatform()
+    filter {
+        excludeTestsMatching("*IntegrationTest")
+    }
+}
+
+tasks.register<Test>("integrationTest") {
+    useJUnitPlatform()
+    filter {
+        includeTestsMatching("*IntegrationTest")
+    }
 }
 
 dependencies {
