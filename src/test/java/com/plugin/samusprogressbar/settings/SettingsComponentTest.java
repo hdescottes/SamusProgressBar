@@ -1,4 +1,4 @@
-package settings;
+package com.plugin.samusprogressbar.settings;
 
 import com.intellij.ui.components.JBRadioButton;
 import com.plugin.samusprogressbar.Character;

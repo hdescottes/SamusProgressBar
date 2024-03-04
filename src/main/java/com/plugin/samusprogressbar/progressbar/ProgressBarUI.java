@@ -26,6 +26,8 @@ public class ProgressBarUI extends BasicProgressBarUI {
 
     private final DeterminateBar determinateBar;
 
+    public static final int PROGRESS_BAR_HEIGHT = 20;
+
     public ProgressBarUI() {
         this.indeterminateBar = new IndeterminateBar();
         this.determinateBar = new DeterminateBar();
@@ -39,7 +41,7 @@ public class ProgressBarUI extends BasicProgressBarUI {
 
     @Override
     public Dimension getPreferredSize(JComponent component) {
-        return new Dimension(super.getPreferredSize(component).width, JBUIScale.scale(20));
+        return new Dimension(super.getPreferredSize(component).width, JBUIScale.scale(PROGRESS_BAR_HEIGHT));
     }
 
     @Override
