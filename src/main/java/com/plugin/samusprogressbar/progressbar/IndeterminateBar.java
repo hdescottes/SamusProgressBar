@@ -12,6 +12,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Area;
 import java.awt.geom.RoundRectangle2D;
 
+import static com.plugin.samusprogressbar.Character.flipImageIcon;
 import static com.plugin.samusprogressbar.Character.setRandomIndeterminateCharacter;
 
 public class IndeterminateBar {
@@ -54,7 +55,12 @@ public class IndeterminateBar {
             offset = width - JBUIScale.scale(15);
             velocity = -1;
         }
-        SettingsState.getInstance().selectedCharacter.getIconIndeterminate().paintIcon(progressBar, graphics2D, offset - JBUIScale.scale(3), -JBUIScale.scale(-2));
+
+        if (velocity > 0) {
+            SettingsState.getInstance().selectedCharacter.getIconIndeterminate().paintIcon(progressBar, graphics2D, offset - JBUIScale.scale(3), -JBUIScale.scale(-2));
+        } else {
+            flipImageIcon(SettingsState.getInstance().selectedCharacter.getIconIndeterminate()).paintIcon(progressBar, graphics2D, offset - JBUIScale.scale(3), -JBUIScale.scale(-2));
+        }
     }
 
     private void drawBar(JComponent component, Graphics2D graphics2D, int width, int height) {

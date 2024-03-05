@@ -2,6 +2,11 @@ package com.plugin.samusprogressbar;
 
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -67,5 +72,21 @@ public enum Character {
                 .collect(Collectors.toList());
         Collections.shuffle(characters);
         return characters.get(0);
+    }
+
+    public static ImageIcon flipImageIcon(ImageIcon imageIcon) {
+        Image image = imageIcon.getImage();
+        BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = bufferedImage.createGraphics();
+        g2d.drawImage(image, 0, 0, null);
+        g2d.dispose();
+
+        AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
+        tx.translate(-bufferedImage.getWidth(null), 0);
+        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+        bufferedImage = op.filter(bufferedImage, null);
+
+        return new ImageIcon(bufferedImage);
     }
 }
