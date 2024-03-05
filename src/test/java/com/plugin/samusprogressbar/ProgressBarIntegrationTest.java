@@ -5,12 +5,10 @@ import com.intellij.remoterobot.fixtures.ComponentFixture;
 import com.intellij.remoterobot.launcher.Ide;
 import com.intellij.remoterobot.launcher.IdeDownloader;
 import com.intellij.remoterobot.launcher.IdeLauncher;
-import com.intellij.remoterobot.utils.Keyboard;
 import com.plugin.samusprogressbar.pages.DialogFixture;
 import com.plugin.samusprogressbar.pages.IdeaFrame;
 import com.plugin.samusprogressbar.steps.Steps;
 import okhttp3.OkHttpClient;
-import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -46,7 +44,6 @@ public class ProgressBarIntegrationTest {
     private final static Ide.BuildType buildType = Ide.BuildType.RELEASE;
     private final static String version = "2023.3.4";
     private final Steps sharedSteps = new Steps(remoteRobot);
-    private final Keyboard keyboard = new Keyboard(remoteRobot);
 
     static {
         try {
