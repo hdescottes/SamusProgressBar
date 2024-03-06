@@ -2,7 +2,7 @@
     <id>com.plugin.samusprogressbar</id>
     <name>Samus Progress Bar</name>
     <version>1.0</version>
-    <idea-version since-build="231" until-build="241.*"/>
+    <idea-version since-build="231"/>
     <vendor email="">Hugo DESCOTTES</vendor>
 
     <description><![CDATA[
