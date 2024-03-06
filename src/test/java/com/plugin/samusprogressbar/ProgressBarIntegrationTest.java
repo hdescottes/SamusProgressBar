@@ -30,7 +30,6 @@ import static com.intellij.remoterobot.utils.RepeatUtilsKt.waitFor;
 import static com.plugin.samusprogressbar.RemoteRobotExtKt.isAvailable;
 import static com.plugin.samusprogressbar.pages.ActionMenuFixtureKt.actionMenu;
 import static com.plugin.samusprogressbar.pages.ActionMenuFixtureKt.actionMenuItem;
-import static com.plugin.samusprogressbar.progressbar.ProgressBarUI.PROGRESS_BAR_HEIGHT;
 import static java.time.Duration.ofMinutes;
 import static java.time.Duration.ofSeconds;
 import static org.assertj.swing.timing.Pause.pause;
@@ -110,7 +109,7 @@ public class ProgressBarIntegrationTest {
             actionMenuItem(remoteRobot, "Rebuild Project").click();
             List<ComponentFixture> list = remoteRobot.findAll(ComponentFixture.class, byXpath("//div[@class='JProgressBar']"));
             ComponentFixture componentFixture = list.get(0);
-            assertEquals(PROGRESS_BAR_HEIGHT, componentFixture.getRemoteComponent().getHeight());
+            assertEquals(20, componentFixture.getRemoteComponent().getHeight());
         });
     }
 }

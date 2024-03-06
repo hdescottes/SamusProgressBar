@@ -26,7 +26,7 @@ public class ProgressBarUI extends BasicProgressBarUI {
 
     private final DeterminateBar determinateBar;
 
-    public static final int PROGRESS_BAR_HEIGHT = 20;
+    private static final int PROGRESS_BAR_HEIGHT = 20;
 
     public ProgressBarUI() {
         this.indeterminateBar = new IndeterminateBar();
