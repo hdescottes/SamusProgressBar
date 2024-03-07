@@ -12,18 +12,18 @@
       <br>
       DETERMINATE:
       <br>
-      <img src="src/main/resources/description/samus_bar.gif" title="SamusDeterminateBar" />
+      <img src="https://raw.githubusercontent.com/hdescottes/SamusProgressBar/master/src/main/resources/description/samus_bar.gif" title="SamusDeterminateBar" />
       <br>
       INDETERMINATE:
       <br>
-      <img src="src/main/resources/description/morph_bar.gif" title="SamusIndeterminateBar" />
+      <img src="https://raw.githubusercontent.com/hdescottes/SamusProgressBar/master/src/main/resources/description/morph_bar.gif" title="SamusIndeterminateBar" />
       <br>
       <br>
       You can access the plugin's configuration in :
       <br>
       Settings > Tools > Samus Progress Bar
       <br>
-      <img src="src/main/resources/description/settings.gif" title="Options" />
+      <img src="https://raw.githubusercontent.com/hdescottes/SamusProgressBar/master/src/main/resources/description/settings.gif" title="Options" />
     ]]></description>
 
     <change-notes><![CDATA[
