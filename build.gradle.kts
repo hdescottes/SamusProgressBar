@@ -5,8 +5,6 @@ val assertJVersion by extra { "3.24.2" }
 val remoteRobotVersion by extra { "0.11.22" }
 val okHttp3Version by extra { "4.12.0" }
 
-fun properties(key: String) = project.findProperty(key).toString()
-
 plugins {
     id("java-library")
     id("org.jetbrains.intellij") version "1.17.0"
@@ -14,7 +12,7 @@ plugins {
 }
 
 group = "com.plugin"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -86,6 +84,7 @@ tasks.register<Test>("integrationTest") {
 dependencies {
     api("com.squareup.okhttp3:okhttp:${okHttp3Version}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
+    implementation(kotlin("stdlib-jdk8"))
     testImplementation("org.junit.platform:junit-platform-launcher:$jUnitPlatformVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$jUnitJupiterVersion")
@@ -95,5 +94,4 @@ dependencies {
     testImplementation("com.intellij.remoterobot:remote-fixtures:$remoteRobotVersion")
     testImplementation("com.intellij.remoterobot:ide-launcher:$remoteRobotVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitJupiterVersion")
-    implementation(kotlin("stdlib-jdk8"))
 }
