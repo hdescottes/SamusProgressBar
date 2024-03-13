@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.plugin.samusprogressbar</id>
     <name>Samus Progress Bar</name>
-    <version>1.1</version>
+    <version>1.2</version>
     <idea-version since-build="231"/>
     <vendor email="">Hugo DESCOTTES</vendor>
 
@@ -16,6 +16,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
+      <em>1.2 Remove background of the plugin icon</em><br>
       <em>1.1 Fix minor requests for release</em><br>
       <em>1.0 Creation of the Samus Progress Bar Project</em><br>
     ]]>
