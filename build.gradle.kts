@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "com.plugin"
-version = "1.2"
+version = "1.3"
 
 repositories {
     mavenCentral()
@@ -24,6 +24,7 @@ repositories {
 intellij {
     version.set("2023.3.4")
     type.set("IC") // Target IDE Platform
+    updateSinceUntilBuild = false
 
     plugins.set(listOf(/* Plugin Dependencies */))
 }
@@ -35,11 +36,6 @@ kotlin {
 tasks {
     // Set the JVM compatibility versions
     withType<JavaCompile> {
-    }
-
-    patchPluginXml {
-        sinceBuild.set("231")
-        untilBuild.set("241.*")
     }
 
     signPlugin {
