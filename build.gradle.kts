@@ -9,7 +9,6 @@ version = "1.3"
 
 repositories {
     mavenCentral()
-    gradlePluginPortal()
     maven { url = uri("https://packages.jetbrains.team/maven/p/ij/intellij-dependencies") }
 }
 
