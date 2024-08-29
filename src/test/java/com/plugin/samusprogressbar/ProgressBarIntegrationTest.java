@@ -70,7 +70,8 @@ public class ProgressBarIntegrationTest {
                 additionalProperties,
                 Collections.emptyList(),
                 plugins,
-                tmpDir
+                tmpDir,
+                stringMap -> null
         );
         waitFor(ofSeconds(90), ofSeconds(5), () -> isAvailable(remoteRobot));
     }
