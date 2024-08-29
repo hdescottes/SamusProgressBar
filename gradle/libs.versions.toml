@@ -1,0 +1,30 @@
+[versions]
+okhttp3 = "4.12.0"
+remote-robot = "0.11.22"
+junit-platform = "1.11.0"
+junit-jupiter = "5.11.0"
+mockito = "5.12.0"
+assertj = "3.26.3"
+intellij = "1.17.0"
+kotlin-jvm = "1.9.22"
+
+[libraries]
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib"}
+okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3" }
+remote-robot = { group = "com.intellij.remoterobot", name = "remote-robot", version.ref = "remote-robot"}
+remote-fixtures = { group = "com.intellij.remoterobot", name = "remote-fixtures", version.ref = "remote-robot"}
+ide-launcher = { group = "com.intellij.remoterobot", name = "ide-launcher", version.ref = "remote-robot"}
+junit-platform = { group = "org.junit.platform", name = "junit-platform-launcher", version.ref = "junit-platform" }
+junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-jupiter-params = { group = "org.junit.jupiter", name = "junit-jupiter-params", version.ref = "junit-jupiter" }
+junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit-jupiter" }
+mockito = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+assertj = { group = "org.assertj", name = "assertj-core", version.ref = "assertj" }
+
+[bundles]
+junit = ["junit-platform", "junit-jupiter-api", "junit-jupiter-params"]
+remote-robot = ["remote-robot", "remote-fixtures", "ide-launcher"]
+
+[plugins]
+intellij = { id = "org.jetbrains.intellij", version.ref = "intellij" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-jvm" }
