@@ -1,14 +1,7 @@
-val jUnitPlatformVersion by extra { "1.10.1" }
-val jUnitJupiterVersion by extra { "5.10.1" }
-val mockitoVersion by extra { "5.7.0" }
-val assertJVersion by extra { "3.24.2" }
-val remoteRobotVersion by extra { "0.11.22" }
-val okHttp3Version by extra { "4.12.0" }
-
 plugins {
     id("java-library")
-    id("org.jetbrains.intellij") version "1.17.0"
-    id("org.jetbrains.kotlin.jvm") version "1.9.22"
+    alias(libs.plugins.intellij)
+    alias(libs.plugins.kotlin.jvm)
 }
 
 group = "com.plugin"
@@ -16,6 +9,7 @@ version = "1.3"
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
     maven { url = uri("https://packages.jetbrains.team/maven/p/ij/intellij-dependencies") }
 }
 
@@ -24,7 +18,7 @@ repositories {
 intellij {
     version.set("2023.3.4")
     type.set("IC") // Target IDE Platform
-    updateSinceUntilBuild = false
+    updateSinceUntilBuild.set(false)
 
     plugins.set(listOf(/* Plugin Dependencies */))
 }
@@ -55,7 +49,7 @@ tasks {
     }
 
     downloadRobotServerPlugin {
-        version = remoteRobotVersion
+        version.set(libs.versions.remote.robot)
     }
 }
 
@@ -78,16 +72,12 @@ tasks.register<Test>("integrationTest") {
 }
 
 dependencies {
-    api("com.squareup.okhttp3:okhttp:${okHttp3Version}")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
+    api(libs.okhttp3)
+    implementation(libs.kotlin.stdlib)
     implementation(kotlin("stdlib-jdk8"))
-    testImplementation("org.junit.platform:junit-platform-launcher:$jUnitPlatformVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitJupiterVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:$jUnitJupiterVersion")
-    testImplementation("org.mockito:mockito-core:$mockitoVersion")
-    testImplementation("org.assertj:assertj-core:$assertJVersion")
-    testImplementation("com.intellij.remoterobot:remote-robot:$remoteRobotVersion")
-    testImplementation("com.intellij.remoterobot:remote-fixtures:$remoteRobotVersion")
-    testImplementation("com.intellij.remoterobot:ide-launcher:$remoteRobotVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitJupiterVersion")
+    testImplementation(libs.bundles.junit)
+    testImplementation(libs.mockito)
+    testImplementation(libs.assertj)
+    testImplementation(libs.bundles.remote.robot)
+    testRuntimeOnly(libs.junit.jupiter.engine)
 }

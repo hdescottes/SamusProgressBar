@@ -1,0 +1,23 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+    labels:
+      - "dependencies"
+
+  - package-ecosystem: gradle
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels:
+      - "dependencies"
+    open-pull-requests-limit: 20
+    groups:
+      remote-robot:
+        patterns:
+          - "com.intellij.remoterobot*"
+      junit-jupiter:
+        patterns:
+          - "org.junit.jupiter*"
