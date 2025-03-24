@@ -6,7 +6,7 @@ junit-jupiter = "5.12.1"
 mockito = "5.16.1"
 assertj = "3.27.3"
 intellij = "1.17.4"
-kotlin-jvm = "2.1.10"
+kotlin-jvm = "2.1.20"
 
 [libraries]
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib"}
