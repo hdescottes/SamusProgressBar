@@ -47,7 +47,8 @@ public class ConfigTest {
                 Arguments.of(Character.SAMUS_GRAVITY_SUIT, 3, 4),
                 Arguments.of(Character.SAMUS_ZERO_SUIT, 5, 6),
                 Arguments.of(Character.SAMUS_FUSION_SUIT, 7, 8),
-                Arguments.of(Character.RANDOM, 9, 10)
+                Arguments.of(Character.SAMUS_VARIA_FP_SUIT, 9, 10),
+                Arguments.of(Character.RANDOM, 11, 12)
         );
     }
 

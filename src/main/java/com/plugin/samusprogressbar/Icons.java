@@ -16,6 +16,9 @@ public class Icons {
     public static ImageIcon SAMUS_FUSION_SUIT = new ImageIcon(Icons.class.getResource("/settings/samus_fusion_suit.gif"), "Samus (Fusion Suit)");
     public static ImageIcon SAMUS_FUSION_SUIT_BAR = new ImageIcon(Icons.class.getResource("/progressbar/samus_fusion_suit_bar.gif"), "Samus (Fusion Suit)");
 
+    public static ImageIcon SAMUS_VARIA_FP_SUIT = new ImageIcon(Icons.class.getResource("/settings/samus_fp_varia_suit.gif"), "Samus (Varia full power Suit)");
+    public static ImageIcon SAMUS_VARIA_FP_SUIT_BAR = new ImageIcon(Icons.class.getResource("/progressbar/samus_fp_varia_suit_bar.gif"), "Samus (Varia full power Suit)");
+
     public static ImageIcon MORPH_POWER_SUIT = new ImageIcon(Icons.class.getResource("/progressbar/morph_power_suit.gif"), "Morphball (Power Suit)");
 
     public static ImageIcon MORPH_GRAVITY_SUIT = new ImageIcon(Icons.class.getResource("/progressbar/morph_gravity_suit.gif"), "Morphball (Gravity Suit)");
@@ -23,6 +26,8 @@ public class Icons {
     public static ImageIcon MORPH_ZERO_SUIT = new ImageIcon(Icons.class.getResource("/progressbar/morph_zero_suit.gif"), "Morphball (Zero Suit)");
 
     public static ImageIcon MORPH_FUSION_SUIT = new ImageIcon(Icons.class.getResource("/progressbar/morph_fusion_suit.gif"), "Morphball (Fusion Suit)");
+
+    public static ImageIcon MORPH_VARIA_FP_SUIT = new ImageIcon(Icons.class.getResource("/progressbar/morph_fp_varia_suit.gif"), "Morphball (Varia full power Suit)");
 
     public static ImageIcon RANDOM = new ImageIcon(Icons.class.getResource("/settings/save_room.gif"), "Random character");
 }

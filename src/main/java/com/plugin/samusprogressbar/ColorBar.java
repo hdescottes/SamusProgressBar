@@ -11,4 +11,6 @@ public class ColorBar {
     static Color[] COLOR_ZERO_SUIT = new Color[]{Color.decode("#727474"), Color.decode("#45f2f2"), Color.decode("#727474")};
 
     static Color[] COLOR_FUSION_SUIT = new Color[]{Color.decode("#12a3dc"), Color.decode("#52f8a6"), Color.decode("#12a3dc")};
+
+    static Color[] COLOR_VARIA_FP_SUIT = new Color[]{Color.decode("#cc1100"), Color.decode("#dddd00"), Color.decode("#cc1100")};
 }

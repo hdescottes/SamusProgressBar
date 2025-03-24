@@ -87,6 +87,7 @@ public class ProgressBarIntegrationTest {
     public void select_a_character_and_launch_build() {
         sharedSteps.createNewProject();
         sharedSteps.closeTipOfTheDay();
+        sharedSteps.waitUntilAllTheBgTasksFinish();
 
         final IdeaFrame idea = remoteRobot.find(IdeaFrame.class, ofSeconds(10));
         waitFor(ofMinutes(5), () -> !idea.isDumbMode());
@@ -102,8 +103,6 @@ public class ProgressBarIntegrationTest {
             settingsDialog.radioButton("Samus (Gravity Suit)").click();
             settingsDialog.button("OK").click();
         });
-
-        pause(ofMinutes(1).toMillis());
 
         step("Trigger the progress bar", () -> {
             actionMenu(remoteRobot, "Build").click();
