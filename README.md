@@ -1,6 +1,7 @@
 # Samus Progress Bar
 ![build workflow](https://github.com/hdescottes/SamusProgressBar/actions/workflows/build.yaml/badge.svg)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/hdescottes/SamusProgressBar)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/23917-samus-progress-bar)](https://plugins.jetbrains.com/plugin/23917-samus-progress-bar)
 
 ## Description
 <p>This is the Samus Progress Bar for IJ based IDEs based on the Nyan Progress Bar by Dmitry Batkovitch and Mario Progress Bar by KikiManjaro.
