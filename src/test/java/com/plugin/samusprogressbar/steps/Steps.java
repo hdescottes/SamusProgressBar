@@ -20,7 +20,7 @@ import static java.time.Duration.ofSeconds;
 
 public class Steps {
 
-    final private RemoteRobot remoteRobot;
+    private final RemoteRobot remoteRobot;
 
     public Steps(RemoteRobot remoteRobot) {
         this.remoteRobot = remoteRobot;
@@ -32,7 +32,6 @@ public class Steps {
             welcomeFrame.createNewProjectLink().click();
 
             final DialogFixture newProjectDialog = welcomeFrame.find(DialogFixture.class, byTitle("New Project"), ofSeconds(20));
-            newProjectDialog.find(JListFixture.class, byXpath("//div[@class='JBList']")).clickItem("New Project", true);
             newProjectDialog.findText("Java").click();
             newProjectDialog.button("Create").click();
         });

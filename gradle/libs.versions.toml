@@ -5,7 +5,7 @@ junit-platform = "1.13.4"
 junit-jupiter = "5.13.4"
 mockito = "5.19.0"
 assertj = "3.27.4"
-intellij = "1.17.4"
+intellij-platform = "2.7.2"
 kotlin-jvm = "2.2.10"
 
 [libraries]
@@ -26,5 +26,5 @@ junit = ["junit-platform", "junit-jupiter-api", "junit-jupiter-params"]
 remote-robot = ["remote-robot", "remote-fixtures", "ide-launcher"]
 
 [plugins]
-intellij = { id = "org.jetbrains.intellij", version.ref = "intellij" }
+intellij-platform = { id = "org.jetbrains.intellij.platform", version.ref = "intellij-platform" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-jvm" }

@@ -1,6 +1,9 @@
+import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("java-library")
-    alias(libs.plugins.intellij)
+    alias(libs.plugins.intellij.platform)
     alias(libs.plugins.kotlin.jvm)
 }
 
@@ -10,16 +13,34 @@ version = "1.4"
 repositories {
     mavenCentral()
     maven { url = uri("https://packages.jetbrains.team/maven/p/ij/intellij-dependencies") }
+    // IntelliJ Platform Gradle Plugin Repositories Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-repositories-extension.html
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
-intellij {
-    version.set("2023.3.4")
-    type.set("IC") // Target IDE Platform
-    updateSinceUntilBuild.set(false)
+intellijPlatform {
+    pluginConfiguration {
+        ideaVersion {
+            untilBuild = provider { null }
+        }
+    }
 
-    plugins.set(listOf(/* Plugin Dependencies */))
+    signing {
+        certificateChain = providers.environmentVariable("CERTIFICATE_CHAIN")
+        privateKey = providers.environmentVariable("PRIVATE_KEY")
+        password = providers.environmentVariable("PRIVATE_KEY_PASSWORD")
+    }
+
+    publishing {
+        token = providers.environmentVariable("PUBLISH_TOKEN")
+        // The pluginVersion is based on the SemVer (https://semver.org) and supports pre-release labels, like 2.1.7-alpha.3
+        // Specify pre-release label to publish the plugin in a custom Release Channel automatically. Read more:
+        // https://plugins.jetbrains.com/docs/intellij/deployment.html#specifying-a-release-channel
+        channels = providers.gradleProperty("pluginVersion").map { listOf(it.substringAfter('-', "").substringBefore('.').ifEmpty { "default" }) }
+    }
 }
 
 kotlin {
@@ -29,44 +50,68 @@ kotlin {
 tasks {
     // Set the JVM compatibility versions
     withType<JavaCompile> {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
+    }
+    withType<KotlinCompile> {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+        }
+    }
+    withType<Test> {
+        useJUnitPlatform()
+    }
+/*
+    test {
+        description = "Runs unit tests"
+
+        // Exclure tous les tests se terminant par IntegrationTest
+        filter {
+            excludeTestsMatching("*IntegrationTest")
+        }
     }
 
-    signPlugin {
-        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-        privateKey.set(System.getenv("PRIVATE_KEY"))
-        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
-    }
+    register<Test>("integrationTests") {
+        description = "Runs integration tests with RemoteRobot"
+        group = "verification"
 
-    publishPlugin {
-        token.set(System.getenv("PUBLISH_TOKEN"))
-    }
+        testClassesDirs = sourceSets["test"].output.classesDirs
+        classpath = sourceSets["test"].runtimeClasspath
 
-    runIdeForUiTests {
-        systemProperty("robot-server.port", "8082")
-        systemProperty("jb.privacy.policy.text", "<!--999.999-->")
-        systemProperty("jb.consents.confirmation.enabled", "false")
-    }
+        filter {
+            includeTestsMatching("*IntegrationTest")
+        }
+    }*/
 
-    downloadRobotServerPlugin {
-        version.set(libs.versions.remote.robot)
+    buildSearchableOptions {
+        enabled = false
     }
 }
 
-tasks.named<Test>("test") {
-    useJUnitPlatform()
-}
+intellijPlatformTesting {
+    runIde {
+        create("runIdeForUiTests") {
+            task {
+                description = "Runs integration tests"
 
-tasks.register<Test>("unitTest") {
-    useJUnitPlatform()
-    filter {
-        excludeTestsMatching("*IntegrationTest")
-    }
-}
-
-tasks.register<Test>("integrationTest") {
-    useJUnitPlatform()
-    filter {
-        includeTestsMatching("*IntegrationTest")
+                jvmArgumentProviders += CommandLineArgumentProvider {
+                    listOf(
+                        "-Drobot-server.port=8082",
+                        "-Dide.mac.message.dialogs.as.sheets=false",
+                        "-Djb.privacy.policy.text=<!--999.999-->",
+                        "-Djb.consents.confirmation.enabled=false",
+                        "-Dide.mac.file.chooser.native=false",
+                        "-DjbScreenMenuBar.enabled=false",
+                        "-Dapple.laf.useScreenMenuBar=false",
+                        "-Didea.trust.all.projects=true",
+                        "-Dide.show.tips.on.startup.default.value=false"
+                    )
+                }
+            }
+            plugins {
+                robotServerPlugin(libs.versions.remote.robot)
+            }
+        }
     }
 }
 
@@ -79,4 +124,9 @@ dependencies {
     testImplementation(libs.assertj)
     testImplementation(libs.bundles.remote.robot)
     testRuntimeOnly(libs.junit.jupiter.engine)
+    testRuntimeOnly("junit:junit:4.13.2")
+    intellijPlatform {
+        testFramework(TestFrameworkType.Platform)
+        intellijIdeaCommunity(providers.gradleProperty("platformVersion"))
+    }
 }
