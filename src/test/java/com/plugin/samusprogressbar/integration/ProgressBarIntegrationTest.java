@@ -1,4 +1,4 @@
-package com.plugin.samusprogressbar;
+package com.plugin.samusprogressbar.integration;
 
 import com.intellij.remoterobot.RemoteRobot;
 import com.intellij.remoterobot.fixtures.ComponentFixture;
@@ -8,7 +8,7 @@ import com.intellij.remoterobot.launcher.IdeLauncher;
 import com.intellij.remoterobot.utils.Keyboard;
 import com.plugin.samusprogressbar.pages.DialogFixture;
 import com.plugin.samusprogressbar.pages.IdeaFrame;
-import com.plugin.samusprogressbar.steps.Steps;
+import com.plugin.samusprogressbar.integration.steps.Steps;
 import okhttp3.OkHttpClient;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

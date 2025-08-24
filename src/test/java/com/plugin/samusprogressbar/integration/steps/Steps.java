@@ -1,12 +1,11 @@
-package com.plugin.samusprogressbar.steps;
+package com.plugin.samusprogressbar.integration.steps;
 
 import com.intellij.remoterobot.RemoteRobot;
-import com.intellij.remoterobot.fixtures.JListFixture;
 import com.intellij.remoterobot.fixtures.dataExtractor.RemoteText;
 import com.plugin.samusprogressbar.pages.DialogFixture;
 import com.plugin.samusprogressbar.pages.IdeStatusBarFixture;
 import com.plugin.samusprogressbar.pages.IdeaFrame;
-import com.plugin.samusprogressbar.pages.WelcomeFrameFixture;
+import com.plugin.samusprogressbar.integration.pages.WelcomeFrameFixture;
 import kotlin.Unit;
 
 import java.time.Duration;
