@@ -5,8 +5,6 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBRadioButton;
 import com.plugin.samusprogressbar.Character;
-import com.plugin.samusprogressbar.settings.Config;
-import com.plugin.samusprogressbar.settings.SettingsState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -21,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ConfigTest {
+class ConfigTest {
 
     private Config config;
 

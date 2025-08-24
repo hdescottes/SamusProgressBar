@@ -2,7 +2,6 @@ package com.plugin.samusprogressbar.settings;
 
 import com.intellij.ui.components.JBRadioButton;
 import com.plugin.samusprogressbar.Character;
-import com.plugin.samusprogressbar.settings.SettingsComponent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +10,7 @@ import javax.swing.JComponent;
 import static com.plugin.samusprogressbar.Icons.SAMUS_POWER_SUIT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SettingsComponentTest {
+class SettingsComponentTest {
 
     private SettingsComponent settingsComponent;
 

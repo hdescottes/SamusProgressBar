@@ -1,12 +1,11 @@
-package com.plugin.samusprogressbar.steps;
+package com.plugin.samusprogressbar.integration.steps;
 
 import com.intellij.remoterobot.RemoteRobot;
-import com.intellij.remoterobot.fixtures.JListFixture;
 import com.intellij.remoterobot.fixtures.dataExtractor.RemoteText;
 import com.plugin.samusprogressbar.pages.DialogFixture;
 import com.plugin.samusprogressbar.pages.IdeStatusBarFixture;
 import com.plugin.samusprogressbar.pages.IdeaFrame;
-import com.plugin.samusprogressbar.pages.WelcomeFrameFixture;
+import com.plugin.samusprogressbar.integration.pages.WelcomeFrameFixture;
 import kotlin.Unit;
 
 import java.time.Duration;
@@ -20,7 +19,7 @@ import static java.time.Duration.ofSeconds;
 
 public class Steps {
 
-    final private RemoteRobot remoteRobot;
+    private final RemoteRobot remoteRobot;
 
     public Steps(RemoteRobot remoteRobot) {
         this.remoteRobot = remoteRobot;
@@ -32,7 +31,6 @@ public class Steps {
             welcomeFrame.createNewProjectLink().click();
 
             final DialogFixture newProjectDialog = welcomeFrame.find(DialogFixture.class, byTitle("New Project"), ofSeconds(20));
-            newProjectDialog.find(JListFixture.class, byXpath("//div[@class='JBList']")).clickItem("New Project", true);
             newProjectDialog.findText("Java").click();
             newProjectDialog.button("Create").click();
         });

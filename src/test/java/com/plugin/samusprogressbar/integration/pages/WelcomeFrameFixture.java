@@ -1,4 +1,4 @@
-package com.plugin.samusprogressbar.pages;
+package com.plugin.samusprogressbar.integration.pages;
 
 import com.intellij.remoterobot.RemoteRobot;
 import com.intellij.remoterobot.data.RemoteComponent;
