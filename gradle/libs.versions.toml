@@ -5,7 +5,7 @@ junit-platform = "1.13.4"
 junit-jupiter = "5.13.4"
 mockito = "5.19.0"
 assertj = "3.27.4"
-intellij-platform = "2.7.2"
+intellij-platform = "2.9.0"
 kotlin-jvm = "2.2.10"
 
 [libraries]
