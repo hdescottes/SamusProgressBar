@@ -4,7 +4,7 @@ remote-robot = "0.11.23"
 junit-platform = "1.13.4"
 junit-jupiter = "5.13.4"
 mockito = "5.19.0"
-assertj = "3.27.4"
+assertj = "3.27.5"
 intellij-platform = "2.9.0"
 kotlin-jvm = "2.2.20"
 
