@@ -4,7 +4,7 @@ pluginManagement {
         gradlePluginPortal()
     }
     plugins {
-        kotlin("jvm") version "2.3.20"
+        kotlin("jvm") version "2.3.21"
     }
 }
 plugins {
