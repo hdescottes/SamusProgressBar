@@ -2,7 +2,7 @@
 okhttp3 = "5.4.0"
 remote-robot = "0.11.23"
 junit-jupiter = "6.1.2"
-junit-platform = "6.1.1"
+junit-platform = "6.1.2"
 mockito = "5.23.0"
 assertj = "3.27.7"
 intellij-platform = "2.18.1"
