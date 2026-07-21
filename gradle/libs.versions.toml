@@ -6,7 +6,7 @@ junit-platform = "6.1.2"
 mockito = "5.23.0"
 assertj = "3.27.7"
 intellij-platform = "2.18.1"
-kotlin-jvm = "2.4.0"
+kotlin-jvm = "2.4.10"
 
 [libraries]
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib"}
